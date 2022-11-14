@@ -1,4 +1,5 @@
 from flask import Flask, redirect, url_for
+from os import environ
 import requests as re
 
 #ip = input('Input 1 IP: ')
@@ -17,8 +18,9 @@ def ip(ip):
 	return ipinfo(ip)
 
 def ipinfo(ip):
-	r = re.get(f'http://ipinfo.io/{ip}?token=d3de8a5e2d4c60')
-	return [x.strip(' ') for x in r.text.split('\n')[1:len(ip)-1]]
+	token = environ['IPINFOTOKEN']
+	r = re.get(f'http://ipinfo.io/{ip}?token={token}')
+	return [x for x in r.text.split('\n')[1:len(ip)-1]]
 
 if __name__ == "__main__":
 	app.run()
