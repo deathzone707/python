@@ -2,7 +2,6 @@ from flask import Flask, redirect, url_for
 from os import environ
 import requests as re
 
-#ip = input('Input 1 IP: ')
 app = Flask(__name__)
 
 @app.route("/")
