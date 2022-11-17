@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+<head>
+	<title>IP Check Page</title>
+</head>
+<body>
+	<h1>###IP Information Checker###</h1>
+	<p>Based on your query the ipinfo.io results can be found below!</p>
+	{% for x in ipinformation %}
+	    <p>{{x}}: {{ipinformation[x]}}</p>
+	{% endfor %}
+</body>
+</html>
